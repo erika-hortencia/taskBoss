@@ -2,6 +2,7 @@ package ehpc.taskmanager;
 
 
 import ehpc.taskmanager.persistence.migration.MigrationStrategy;
+import ehpc.taskmanager.ui.MainMenu;
 
 import java.sql.SQLException;
 
@@ -13,6 +14,7 @@ public class TaskmanagerApplication {
 		try(var connection = getConnection()){
 			new MigrationStrategy(connection).executeMigration();
 		}
+		new MainMenu().execute();
 	}
 
 }
